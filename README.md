@@ -14,7 +14,7 @@ lorem ipsum
 *
 
 ## Database Structure
-![photo of SQL designer](./Factory/wwwroot/imgs/schema.png)
+![photo of SQL designer](./NationalParksAPI/wwwroot/imgs/schema.png)
 
 ## Instructions to set up database
 
