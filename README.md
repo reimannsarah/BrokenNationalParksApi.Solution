@@ -14,6 +14,7 @@ lorem ipsum
 *
 
 ## Database Structure
+![photo of SQL designer](./Factory/wwwroot/imgs/schema.png)
 
 ## Instructions to set up database
 
