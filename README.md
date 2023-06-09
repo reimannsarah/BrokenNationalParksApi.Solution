@@ -23,6 +23,17 @@ lorem ipsum
 * Endpoints for **v1.0** are as follows:
 
 ```
+National Parks:
+GET https://localhost:7158/api/v1/natlparks/
+GET https://localhost:7158/api/v1/natlparks/{id}
+
+State Parks:
+GET https://localhost:7158/api/v1/stateparks/
+GET https://localhost:7158/api/v1/stateparks/{id}
+
+States:
+GET https://localhost:7158/api/v1/states/
+GET https://localhost:7158/api/v1/states/{id}
 ```
 
 * Endpoints for **v2.0** are as follows:
