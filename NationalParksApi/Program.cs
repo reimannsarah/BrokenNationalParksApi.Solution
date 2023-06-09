@@ -1,5 +1,12 @@
 using NationalParksApi.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Versioning;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Microsoft.OpenApi.Models;
+using Microsoft.Extensions.Options;
+using Swashbuckle.AspNetCore.SwaggerGen;
+using Microsoft.AspNetCore.Identity;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,7 +28,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddApiVersioning(opt =>
                                     {
-                                        opt.DefaultApiVersion = new ApiVersion(1, 0);
+                                        opt.DefaultApiVersion = new Microsoft.AspNetCore.Mvc.ApiVersion(1, 0);
                                         opt.AssumeDefaultVersionWhenUnspecified = true;
                                         opt.ReportApiVersions = true;
                                         opt.ApiVersionReader = ApiVersionReader.Combine(new UrlSegmentApiVersionReader(),
@@ -46,16 +53,22 @@ var apiVersionDescriptionProvider = app.Services.GetRequiredService<IApiVersionD
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(options => 
+    {
+      foreach (var description in apiVersionDescriptionProvider.ApiVersionDescriptions)
+          {
+              options.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json",
+                  description.GroupName.ToUpperInvariant());
+          }
+    });
 }
 else 
 {
     app.UseHttpsRedirection();
 }
 
-app.UseRequestLocalization(options);
+app.UseRequestLocalization();
 app.UseStaticFiles();
-app.UseMiddleware<LocalizerMiddleware>();
 
 
 app.UseHttpsRedirection();
