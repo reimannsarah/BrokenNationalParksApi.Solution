@@ -87,6 +87,15 @@ public class NationalParksApiContext : DbContext
         new NatlPark { NatlParkId = 4, Name = "Big Bend", Description = "Named for the prominent bend in the Rio Grande along the U.S. -- Mexico border.", StateId = 43},
         new NatlPark { NatlParkId = 5, Name = "Biscayne", Description = "Mostly underwater park at the north end of the Florida Keys.", StateId = 19}
       );
+
+      builder.Entity<StatePark>()
+        .HasData(
+          new StatePark { StateParkId = 1, Name = "Julia Pfeiffer Burns State Park", Description = "300-foot redwoods, remote beaches, and waterfalls.", StateId = 5},
+          new StatePark { StateParkId = 2, Name = "Makoshika State Park", Description = "12,000 acres of mudstone and sandstone bandlnds speckled with orange-gray tent rocks.", StateId = 5},
+          new StatePark { StateParkId = 3, Name = "Baxter State Park", Description = "Home to a vareity of wildlife, from hawks to black bears who make their home amid the park's peaceful lakes and waterfalls", StateId = 19},
+          new StatePark { StateParkId = 1, Name = "Iao Valley State Park", Description = "Dense rainforest canopy dominated by the Iao Needle", StateId = 11},
+          new StatePark { StateParkId = 1, Name = "Valley of Fire State Park", Description = "Gets its name from the enormous, striped red rock formations that cover the area.", StateId = 5}
+        );
   }
 }
 
