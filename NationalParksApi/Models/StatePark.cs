@@ -6,5 +6,5 @@ public class StatePark
   public string Name { get; set; }
   public string Description { get; set; }
   public State State { get; set; }
-  public int StateId { get; }
+  public int StateId { get; set; }
 }
