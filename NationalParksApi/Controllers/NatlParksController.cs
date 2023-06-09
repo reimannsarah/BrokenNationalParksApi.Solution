@@ -21,4 +21,16 @@ public class NatlParksController : ControllerBase
   {
     return await _db.NatlParks.ToListAsync();
   }
+
+  [HttpGet("{id}")]
+  public async Task<ActionResult<NatlPark>> GetNatlPark(int id)
+  {
+    NatlPark natlPark = await _db.NatlParks.FindAsync(id);
+
+    if(natlPark == null)
+    {
+      return NotFound();
+    }
+    return natlPark;
+  }
 }
