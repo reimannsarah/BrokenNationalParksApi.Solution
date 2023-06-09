@@ -2,9 +2,9 @@ using System.Collections.Generic;
 
 namespace NationalParksApi;
 
-public class NatlPark
+public class State
 {
-    public int StateId
+    public int StateId { get; set; }
     public string Name { get; set; }
     public List<NatlPark> NatlParks { get; set; }
     public List<StatePark> StateParks { get; set; }
